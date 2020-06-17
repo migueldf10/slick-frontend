@@ -8,11 +8,12 @@ export default function Login() {
 	})
 
 	const updateLoginForm = (event) => {
-		console.log(event.target.id)
-		console.log(event.target.value)
+		const formToUpdate = { ...form }
+		formToUpdate[event.target.id] = event.target.value
+		set_form(formToUpdate)
 	}
 	const submitForm = () => {
-		console.log('form submitted')
+		console.log('form submitted', form)
 	}
 
 	return (
