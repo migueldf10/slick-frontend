@@ -6,12 +6,16 @@ import {
 } from "react-router-dom";
 import Home from './views/home';
 import Login from './views/login';
+import Conversation from './views/conversation';
 
 
 function App() {
   return (
     <Router>
       <Switch>
+        <Route path="/conversation/:conversationId">
+          <Conversation />
+        </Route>
         <Route path="/login">
           <Login />
         </Route>
