@@ -23,9 +23,7 @@ export default function AddConversation(props) {
 	const postConversation = async (event) => {
 		event.preventDefault()
 		try {
-			console.log('antes de axios', conversationToAdd)
 			const postedConversation = await axios.post('http://localhost:4000/conversations', { ...conversationToAdd })
-
 			console.log('conversacion enviada', postedConversation)
 			history.push(`/conversation/${postedConversation.data.conversation.id}`)
 			set_modalOpen(!modalOpen)
