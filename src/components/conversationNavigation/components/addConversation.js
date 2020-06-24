@@ -1,8 +1,10 @@
 import React, { useState, useEffect } from 'react'
 import axios from 'axios'
 import { AddConversationModal } from '../style'
+import { useHistory } from 'react-router-dom'
 
 export default function AddConversation(props) {
+	const history = useHistory()
 	const [modalOpen, set_modalOpen] = useState(false)
 	const [conversationToAdd, set_conversationToAdd] = useState({
 		title: '',
@@ -21,12 +23,13 @@ export default function AddConversation(props) {
 	const postConversation = async (event) => {
 		event.preventDefault()
 		try {
-			console.log('antes de axios')
+			console.log('antes de axios', conversationToAdd)
 			const postedConversation = await axios.post('http://localhost:4000/conversations', { ...conversationToAdd })
-			// .then(response => {
-			// 	console.log(response)
-			// })
+
 			console.log('conversacion enviada', postedConversation)
+			history.push(`/conversation/${postedConversation.data.conversation.id}`)
+			set_modalOpen(!modalOpen)
+
 
 		} catch (error) {
 			console.log('error', error)

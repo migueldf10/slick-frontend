@@ -1,7 +1,11 @@
 import React, { useState } from 'react'
 import LandingLayout from '../../components/layout/landing'
 import axios from 'axios'
+import { useHistory } from 'react-router-dom'
+
+
 export default function Signup(props) {
+	const history = useHistory()
 	const [form, set_form] = useState({
 		name: '',
 		email: '',
@@ -23,7 +27,7 @@ export default function Signup(props) {
 			}).then(function (response) {
 				console.log(response);
 				set_accountCreated(true)
-				props.history.push('/')
+				history.push('/')
 			})
 				.catch(function (error) {
 					console.log('error', error);

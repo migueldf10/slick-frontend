@@ -1,8 +1,11 @@
 import React, { useState } from 'react'
 import LandingLayout from '../../components/layout/landing'
+import { useHistory } from 'react-router-dom'
 
 
-export default function Login() {
+export default function Login(props) {
+	const history = useHistory()
+
 	const [form, set_form] = useState({
 		email: '',
 		password: ''
@@ -15,6 +18,7 @@ export default function Login() {
 	}
 	const submitForm = () => {
 		console.log('form submitted', form)
+		history.push('/')
 	}
 
 	return (
