@@ -1,5 +1,6 @@
-import React, { useState, useEffect } from 'react'
-import Layout from '../../components/layout'
+import React, { useState } from 'react'
+import LandingLayout from '../../components/layout/landing'
+
 
 export default function Login() {
 	const [form, set_form] = useState({
@@ -17,13 +18,13 @@ export default function Login() {
 	}
 
 	return (
-		<Layout title='Login'>
+		<LandingLayout title='Login'>
 			<label htmlFor='email'>Email</label>
 			<input onChange={updateLoginForm} id="email" />
 			<label htmlFor='password'>Password</label>
 			<input onChange={updateLoginForm} id="password" />
 			<button onClick={submitForm}>Submit</button>
-		</Layout>
+		</LandingLayout>
 
 
 

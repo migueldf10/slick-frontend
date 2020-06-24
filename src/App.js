@@ -7,6 +7,7 @@ import {
 import Home from './views/home';
 import Login from './views/login';
 import Conversation from './views/conversation';
+import Signup from './views/signup';
 
 
 function App() {
@@ -15,6 +16,9 @@ function App() {
       <Switch>
         <Route path="/conversation/:conversationId">
           <Conversation />
+        </Route>
+        <Route path="/signup">
+          <Signup />
         </Route>
         <Route path="/login">
           <Login />
