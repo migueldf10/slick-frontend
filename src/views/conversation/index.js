@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react'
 import axios from 'axios'
 import { useParams } from 'react-router-dom'
 import Layout from '../../components/layout'
-
+import MessageEditor from '../../components/messageEditor'
 export default function Conversation() {
 	const [conversation, set_conversation] = useState({})
 	const { conversationId } = useParams()
@@ -30,6 +30,7 @@ export default function Conversation() {
 
 			{conversation.messages && conversation.messages.length > 0 ?
 				<div>
+					<MessageEditor />
 
 					<h2>messages</h2>
 					{conversation.messages && conversation.messages.map((message) => {
@@ -40,7 +41,15 @@ export default function Conversation() {
 						)
 					})}
 				</div>
-				: <h2>Break the ice and write something nice!</h2>}
+				:
+				<div>
+
+					<h2>Break the ice and write something nice!</h2>
+					<MessageEditor />
+
+				</div>
+			}
+
 		</Layout>
 	)
 }
